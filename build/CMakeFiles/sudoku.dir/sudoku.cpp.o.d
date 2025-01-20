@@ -150,4 +150,7 @@ CMakeFiles/sudoku.dir/sudoku.cpp.o: /home/aebov/bp-sudoku/sudoku.cpp \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/curses.h \
- /usr/include/ncurses_dll.h /usr/include/unctrl.h /usr/include/curses.h
+ /usr/include/ncurses_dll.h /usr/include/unctrl.h /usr/include/curses.h \
+ /home/aebov/bp-sudoku/src/file/File.h \
+ /home/aebov/bp-sudoku/src/user/User.h \
+ /home/aebov/bp-sudoku/src/core/Core.h
