@@ -1,0 +1,7 @@
+[requires]
+gsl-lite/0.40.0
+gtest/1.13.0
+
+[generators]
+CMakeDeps
+CMakeToolchain

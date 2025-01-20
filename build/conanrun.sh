@@ -1,0 +1,1 @@
+. "/home/aebov/bp-sudoku/build/conanrunenv-release-x86_64.sh"

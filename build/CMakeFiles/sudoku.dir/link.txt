@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/sudoku.dir/sudoku.cpp.o -o sudoku  src/file/libfile.a src/core/libcore.a src/user/libuser.a 
