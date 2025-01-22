@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/aebov/bp-sudoku/src/file -I/home/aebov/bp-sudoku/src/core -I/home/aebov/bp-sudoku/src/user
 
-CXX_FLAGS = -O3 -DNDEBUG -lncurces
+CXX_FLAGS = -O3 -DNDEBUG
 

@@ -1,4 +1,4 @@
-FileTests 16 0.000218569
-CoreTests 7 0.000399996
-UserTests 16 0.000157116
+FileTests 22 0.000112311
+CoreTests 13 0.00016633
+UserTests 19 0.000200969
 ---

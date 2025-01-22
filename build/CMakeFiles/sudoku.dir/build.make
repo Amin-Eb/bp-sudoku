@@ -95,6 +95,8 @@ sudoku: CMakeFiles/sudoku.dir/build.make
 sudoku: src/file/libfile.a
 sudoku: src/core/libcore.a
 sudoku: src/user/libuser.a
+sudoku: /usr/lib/x86_64-linux-gnu/libcurses.so
+sudoku: /usr/lib/x86_64-linux-gnu/libform.so
 sudoku: CMakeFiles/sudoku.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aebov/bp-sudoku/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable sudoku"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sudoku.dir/link.txt --verbose=$(VERBOSE)
