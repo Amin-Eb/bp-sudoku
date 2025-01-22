@@ -21,3 +21,9 @@ bool valid(const Mat mat){
 	}
 	return 1;
 }
+string fixed_print(string str,int len){
+    int sz = len - str.size();
+    for(int i = 0; i < sz/2; i ++) str = " " + str;
+	for(int i = 0; i < sz/2; i ++) str = str + " ";
+	return str; 
+}
