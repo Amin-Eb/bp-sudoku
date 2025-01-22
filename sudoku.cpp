@@ -22,6 +22,9 @@ int main(){
     init_pair(2,COLOR_RED, 0);
     init_pair(3,COLOR_GREEN, 0);
     init_pair(4,COLOR_BLUE, 0);
+
+    char ch;
+
     while(true){
 
         clear();
@@ -52,7 +55,8 @@ int main(){
         printw("(E)xit the game\n");
         refresh();
         attroff(COLOR_PAIR(2));
-        getch();
+        ch = getch();
+        if(ch == 'E') exit(0);
     }
     endwin();
 }

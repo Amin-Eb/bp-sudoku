@@ -26,7 +26,10 @@ TEST(Core_things, is_validation_works){
 	check = valid(tmp);
 	EXPECT_EQ(check, 1);
 }
-
+TEST(Core_things, is_fixes_the_string_len){
+	EXPECT_EQ(" abc ", fixed_print("abc", 5));
+	EXPECT_EQ(" a a ", fixed_print("a a", 5));
+}
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
