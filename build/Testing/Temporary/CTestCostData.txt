@@ -1,4 +1,4 @@
-FileTests 23 0.000171311
-CoreTests 14 0.000143715
-UserTests 20 0.0001396
+FileTests 29 6.40688e-05
+CoreTests 23 7.15644e-05
+UserTests 23 0.000103691
 ---

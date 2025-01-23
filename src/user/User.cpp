@@ -14,3 +14,10 @@ bool AddUser(string UserName){
     Userss.close();
     return 1;
 }
+vector<string> GetLeaderBoard(){
+    ifstream Users("leaderboard.txt");
+    string s;
+    vector<string> vc;
+    while (getline (Users, s)) vc.push_back(s);
+    return vc;
+}
