@@ -7,6 +7,7 @@ bool valid(const Mat mat){
 		bool seen[10];
 		fill(seen, seen+10, 0);
 		for(int j =0; j < 9; j ++){
+			if(mat.table[i][j]==0) continue;
 			if(seen[mat.table[i][j]]) return 0;
 			seen[mat.table[i][j]] = 1;
 		}
@@ -15,6 +16,7 @@ bool valid(const Mat mat){
 		bool seen[10];
 		fill(seen, seen+10, 0);
 		for(int j =0; j < 9; j ++){
+			if(mat.table[j][i]==0) continue;
 			if(seen[mat.table[j][i]]) return 0;
 			seen[mat.table[j][i]] = 1;
 		}

@@ -1,26 +1,16 @@
-Start testing: Jan 23 09:58 +0330
+Start testing: Jan 24 09:17 +0330
 ----------------------------------------------------------
 1/3 Testing: FileTests
 1/3 Test: FileTests
 Command: "/home/aebov/bp-sudoku/build/tests/FileTests"
 Directory: /home/aebov/bp-sudoku/build/tests
-"FileTests" start time: Jan 23 09:58 +0330
+"FileTests" start time: Jan 24 09:17 +0330
 Output:
 ----------------------------------------------------------
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
 [----------] 1 test from File
 [ RUN      ] File.read_the_table
-s0.txt
-6 3 9 5 7 4 1 8 2
-5 4 1 8 2 9 3 7 6
-7 8 2 6 1 3 9 5 4
-1 9 8 4 6 7 5 2 3
-3 6 5 9 8 2 4 1 7
-4 2 7 1 3 5 8 6 9
-9 5 6 7 4 8 2 3 1
-8 1 3 2 9 6 7 4 5
-2 7 4 3 5 1 6 9 8
 [       OK ] File.read_the_table (0 ms)
 [----------] 1 test from File (0 ms total)
 
@@ -28,10 +18,10 @@ s0.txt
 [==========] 1 test from 1 test suite ran. (0 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"FileTests" end time: Jan 23 09:58 +0330
+"FileTests" end time: Jan 24 09:17 +0330
 "FileTests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -39,26 +29,18 @@ Test Passed.
 2/3 Test: CoreTests
 Command: "/home/aebov/bp-sudoku/build/tests/CoreTests"
 Directory: /home/aebov/bp-sudoku/build/tests
-"CoreTests" start time: Jan 23 09:58 +0330
+"CoreTests" start time: Jan 24 09:17 +0330
 Output:
 ----------------------------------------------------------
 [==========] Running 2 tests from 1 test suite.
 [----------] Global test environment set-up.
 [----------] 2 tests from Core_things
 [ RUN      ] Core_things.is_validation_works
-[       OK ] Core_things.is_validation_works (0 ms)
-[ RUN      ] Core_things.is_fixes_the_string_len
-[       OK ] Core_things.is_fixes_the_string_len (0 ms)
-[----------] 2 tests from Core_things (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 2 tests from 1 test suite ran. (0 ms total)
-[  PASSED  ] 2 tests.
 <end of output>
-Test time =   0.00 sec
+Test time =   0.22 sec
 ----------------------------------------------------------
-Test Passed.
-"CoreTests" end time: Jan 23 09:58 +0330
+Test Failed.
+"CoreTests" end time: Jan 24 09:17 +0330
 "CoreTests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -66,25 +48,36 @@ Test Passed.
 3/3 Test: UserTests
 Command: "/home/aebov/bp-sudoku/build/tests/UserTests"
 Directory: /home/aebov/bp-sudoku/build/tests
-"UserTests" start time: Jan 23 09:58 +0330
+"UserTests" start time: Jan 24 09:17 +0330
 Output:
 ----------------------------------------------------------
-[==========] Running 1 test from 1 test suite.
+[==========] Running 2 tests from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 1 test from User
+[----------] 2 tests from User
 [ RUN      ] User.is_repeated
 [       OK ] User.is_repeated (0 ms)
-[----------] 1 test from User (0 ms total)
+[ RUN      ] User.parser_works
+/home/aebov/bp-sudoku/tests/UserTests.cpp:17: Failure
+Expected equality of these values:
+  ret.second
+    Which is: ",aleik"
+  "aleik"
+[  FAILED  ] User.parser_works (0 ms)
+[----------] 2 tests from User (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
+[==========] 2 tests from 1 test suite ran. (0 ms total)
 [  PASSED  ] 1 test.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] User.parser_works
+
+ 1 FAILED TEST
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
-Test Passed.
-"UserTests" end time: Jan 23 09:58 +0330
+Test Failed.
+"UserTests" end time: Jan 24 09:17 +0330
 "UserTests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jan 23 09:58 +0330
+End testing: Jan 24 09:17 +0330
