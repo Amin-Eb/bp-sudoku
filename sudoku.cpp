@@ -22,20 +22,22 @@ using namespace std;
 
 inline void wait ( short seconds )
 {
-  clock_t endwait;
-  endwait = clock() + seconds * CLOCKS_PER_SEC;
-  while (clock() < endwait);
+    clock_t endwait;
+    endwait = clock() + seconds * CLOCKS_PER_SEC;
+    while (clock() < endwait);
 }
+inline void PrintMenu(string UserName);
 void PrintScr(Mat mat,Mat mat2, int x,int y, string UserName,int t,int wrongs);
 mt19937 mt(time(nullptr));  
 bool is_keyboard_hit();
-int nb_getch(void);
+int nb_getch(void);   
+string CLEAR_LINE = "";
+
 
 int main(){
     initscr();
     noecho();
     cbreak();
-    string CLEAR_LINE = "";
     for(int i = 0; i < COLS; i ++) CLEAR_LINE += " ";
     start_color();
     init_pair(1,COLOR_YELLOW, 0);
@@ -56,27 +58,7 @@ int main(){
         if(UserName == "exit") break;
         if(!AddUser(UserName)) continue;
         while(true){
-            clear();   
-            attron(COLOR_PAIR(3));
-            move(0,0);
-            printw("%s", CLEAR_LINE.c_str());
-            move(0,0);
-            printw(fixed_print("^_^ sudoku ^_^",COLS).c_str());
-            refresh();
-            attroff(COLOR_PAIR(3));
-            attron(COLOR_PAIR(1));
-            move(3,0);
-            printw("%s\n", fixed_print("Hello " +UserName, COLS).c_str());
-            refresh();
-            attroff(COLOR_PAIR(1));
-            attron(COLOR_PAIR(2));
-            printw("(S)tart a new game\n");
-            printw("(P)lay a saved game\n");
-            printw("(L)eaderboard\n");
-            printw("(E)xit the game\n");
-            refresh();
-            attroff(COLOR_PAIR(2));
-
+            PrintMenu(UserName);
             ch = getch();
             if(ch == 'E') break;
             if(ch == 'L') {
@@ -114,6 +96,16 @@ int main(){
                 }
                 for(int robsec= 0; robsec < dif * 8; robsec ++){
                     ch = nb_getch();
+                    if(ch == 27){
+                        clear();
+                        move(0, 0);
+                        printw(fixed_print("You stoped the game, press Esc for continue ... ",COLS).c_str());
+                        refresh();
+                        ch = 0;
+                        while(ch != 27){
+                            ch = getch();
+                        }
+                    }
                     if(ch == 'd')
                         y ++, y = min(y, 8);
                     if(ch == 'a')
@@ -152,7 +144,14 @@ int main(){
                     }
                     PrintScr(SudokuTable, verdict, x, y, UserName, robsec, wrs);
                     std::this_thread::sleep_for(std::chrono::milliseconds(125));              
-                }    
+                }
+                clear();
+                attron(COLOR_PAIR(2));
+                printw("%s\n",fixed_print("Ah shit, maybe next time you can solve this simple thing.", COLS).c_str());
+                attroff(COLOR_PAIR(2));
+                printw("%s\n",fixed_print("press any key to continue ...",COLS).c_str());
+                refresh();
+                ch = getch();
             }
         }
     }
@@ -223,4 +222,26 @@ int nb_getch(void)
         return getch();
     else
         return 0;
+}
+inline void PrintMenu(string UserName){
+    clear();   
+    attron(COLOR_PAIR(3));
+    move(0,0);
+    printw("%s", CLEAR_LINE.c_str());
+    move(0,0);
+    printw(fixed_print("^_^ sudoku ^_^",COLS).c_str());
+    refresh();
+    attroff(COLOR_PAIR(3));
+    attron(COLOR_PAIR(1));
+    move(3,0);
+    printw("%s\n", fixed_print("Hello " +UserName, COLS).c_str());
+    refresh();
+    attroff(COLOR_PAIR(1));
+    attron(COLOR_PAIR(2));
+    printw("(S)tart a new game\n");
+    printw("(P)lay a saved game\n");
+    printw("(L)eaderboard\n");
+    printw("(E)xit the game\n");
+    refresh();
+    attroff(COLOR_PAIR(2));
 }
