@@ -86,6 +86,10 @@ int main(){
                     break;
                 }
                 Mat SudokuTable, verdict;
+                SudokuTable = ReadSudoku("s1.txt");
+                for(int i = 0; i < 9; i ++)
+                    for(int j = 0; j < 9; j ++)
+                        verdict.table[i][j] = (SudokuTable.table[i][j] > 0);
                 PlaySaved(UserName, elpsd, dif, SudokuTable, verdict, wrs);
             }
             if(ch == 'P'){
@@ -105,7 +109,7 @@ int main(){
                     ch = getch();
                     break;
                 }
-                int elpsd, dif, wrs;
+                int elpsd = 0, dif = 0, wrs = 0;
                 Mat SudokuTable, verdict;
                 LoadGame(UserName, elpsd, dif, SudokuTable, verdict, wrs);
                 PlaySaved(UserName, elpsd, dif, SudokuTable, verdict, wrs);
@@ -203,12 +207,10 @@ inline void PrintMenu(string UserName){
     attroff(COLOR_PAIR(2));
 }
 inline void PlaySaved(string& UserName,int& ElapsedTime,int& dif,Mat& SudokuTable, Mat& verdict,int& wrs){
-    SudokuTable = ReadSudoku(1);
     int stat = 0, x = 0, y = 0, empty = 0;
     char ch;
     for(int i = 0; i < 9; i ++){
         for(int j = 0; j < 9; j ++) {
-            verdict.table[i][j] = (SudokuTable.table[i][j] > 0);
             empty += (verdict.table[i][j] == 0);
         }
     }

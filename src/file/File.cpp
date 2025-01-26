@@ -1,11 +1,17 @@
 #include "File.h"
+
 using namespace std;
 
-Mat ReadSudoku(int n){
+int strtoint_(string s){
+	int ret = 0;
+	for(auto ch : s){
+		ret *= 10;
+		ret +=ch - '0';
+	}
+	return ret;
+}
+Mat ReadSudoku(string FileName){
     Mat ret;
-    string FileName = "s";
-    FileName += (char)(n + '0');
-    FileName += ".txt";
     ifstream Users(FileName);
     string  s;
     int ind = 0;
@@ -18,7 +24,7 @@ Mat ReadSudoku(int n){
 }
 
 void SaveGame(string username, int t, int dif,Mat mat1, Mat mat2,int wrs){
-    ofstream username_f("SavedGames/Usernames.txt");
+    ofstream username_f("SavedGames/Usernames.txt", std::ios_base::app);
     username_f << username << endl;
     username_f.close();
 
@@ -29,6 +35,10 @@ void SaveGame(string username, int t, int dif,Mat mat1, Mat mat2,int wrs){
     ofstream dif_f("SavedGames/" + username + "_dif.txt");
     dif_f << dif;
     dif_f.close();
+
+    ofstream wrs_f("SavedGames/" + username + "_wrs.txt");
+    wrs_f << wrs;
+    wrs_f.close();
 
     ofstream mat1_f("SavedGames/" + username + "_mat1.txt");
     for(int i = 0; i < 9; i ++){
@@ -47,5 +57,24 @@ void SaveGame(string username, int t, int dif,Mat mat1, Mat mat2,int wrs){
     mat2_f.close();
 }
 void LoadGame(string& username, int& t, int& dif,Mat& mat1, Mat& mat2,int& wrs){
+    string s;
 
+    ifstream t_f("SavedGames/" + username + "_time.txt");
+    while (getline (t_f, s))
+        t = strtoint_(s);
+    t_f.close();
+    
+    ifstream dif_f("SavedGames/" + username + "_dif.txt");
+    while (getline (dif_f, s))
+        dif = strtoint_(s);
+    dif_f.close();
+    
+    ifstream wrs_f("SavedGames/" + username + "_wrs.txt");
+    while (getline (wrs_f, s))
+        wrs = strtoint_(s);
+    wrs_f.close();
+
+    mat1 = ReadSudoku("SavedGames/" + username + "_mat1.txt");
+
+    mat2 = ReadSudoku("SavedGames/" + username + "_mat2.txt");
 }

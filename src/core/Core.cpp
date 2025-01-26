@@ -31,7 +31,7 @@ string fixed_print(string str,int len){
 	return str; 
 }
 
-int stoint(string s){
+int strtoint(string s){
 	int ret = 0;
 	for(auto ch : s){
 		ret *= 10;

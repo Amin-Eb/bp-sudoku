@@ -1,5 +1,6 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
+#include "../core/Core.h"	
 #include "File.h"
 
 using namespace std;
@@ -21,7 +22,6 @@ TEST(File, read_the_table){
         for(int j = 0; j < 9; j ++)
             EXPECT_EQ(tmp.table[i][j],a[i][j]);
 }
-
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

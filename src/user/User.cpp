@@ -19,8 +19,8 @@ bool AddUser(string UserName){
             return 0;
         }
     Users.close();
-    ofstream Userss("users.txt");
-    Userss << UserName;
+    ofstream Userss("users.txt",std::ios_base::app);
+    Userss << UserName << endl;
     Userss.close();
     return 1;
 }

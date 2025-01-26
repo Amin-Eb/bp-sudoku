@@ -29,8 +29,8 @@ TEST(Core_things, is_fixes_the_string_len){
 	EXPECT_EQ(" a a ", fixed_print("a a", 5));
 }
 TEST(Core_things, is_string_to_int_works){
-	EXPECT_EQ(243, stoint("243"));
-	EXPECT_EQ(1, stoint("1"));
+	EXPECT_EQ(243, strtoint("243"));
+	EXPECT_EQ(1, strtoint("1"));
 }
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);

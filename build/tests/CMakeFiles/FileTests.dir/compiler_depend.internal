@@ -426,10 +426,10 @@ tests/CMakeFiles/FileTests.dir/FileTests.cpp.o
  /root/.conan2/p/b/gtest9aa0b9294240b/p/include/gmock/internal/custom/gmock-generated-actions.h
  /root/.conan2/p/b/gtest9aa0b9294240b/p/include/gmock/gmock-more-matchers.h
  /root/.conan2/p/b/gtest9aa0b9294240b/p/include/gmock/gmock-nice-strict.h
+ /home/aebov/bp-sudoku/src/core/Core.h
  /home/aebov/bp-sudoku/src/file/File.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
  /usr/include/c++/11/bits/fstream.tcc
- /home/aebov/bp-sudoku/src/core/Core.h
 
