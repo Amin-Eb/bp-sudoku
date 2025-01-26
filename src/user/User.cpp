@@ -14,13 +14,26 @@ bool AddUser(string UserName){
     ifstream Users("users.txt");
     string  s;
     while (getline (Users, s))
-        if(s == UserName) 
+        if(s == UserName) {
+            Users.close();
             return 0;
+        }
     Users.close();
     ofstream Userss("users.txt");
     Userss << UserName;
     Userss.close();
     return 1;
+}
+bool CheckUser(string UserName){
+    ifstream Users("SavedGames/Usernames.txt");
+    string  s;
+    while (getline (Users, s))
+        if(s == UserName) {
+            Users.close();
+            return 1;
+        }
+    Users.close();
+    return 0;
 }
 vector<pair<string,string>> GetLeaderBoard(){
     ifstream Users("leaderboard.txt");
@@ -29,6 +42,7 @@ vector<pair<string,string>> GetLeaderBoard(){
     while (getline (Users, s)) vc.push_back(parser(s));
     sort(vc.begin(), vc.end());
     reverse(vc.begin(), vc.end());
+    Users.close();
     return vc;
 }
 void AddLeaderBoard(string username,int t){

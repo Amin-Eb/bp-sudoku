@@ -10,3 +10,4 @@ struct Mat{
 };
 bool valid(const Mat mat);
 string fixed_print(string str,int len);
+int stoint(string s);

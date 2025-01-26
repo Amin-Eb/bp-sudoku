@@ -302,8 +302,8 @@ CMakeFiles/sudoku.dir/sudoku.cpp.o: ../sudoku.cpp \
   /usr/include/c++/11/bit \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   ../src/core/Core.h \
-  ../src/file/File.h \
-  ../src/user/User.h
+  ../src/user/User.h \
+  ../src/file/File.h
 
 
 ../src/core/Core.h:

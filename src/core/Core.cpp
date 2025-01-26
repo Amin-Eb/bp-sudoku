@@ -23,9 +23,19 @@ bool valid(const Mat mat){
 	}
 	return 1;
 }
+
 string fixed_print(string str,int len){
     int sz = len - str.size();
     for(int i = 0; i < sz/2; i ++) str = " " + str;
 	for(int i = 0; i < sz/2; i ++) str = str + " ";
 	return str; 
+}
+
+int stoint(string s){
+	int ret = 0;
+	for(auto ch : s){
+		ret *= 10;
+		ret +=ch - '0';
+	}
+	return ret;
 }

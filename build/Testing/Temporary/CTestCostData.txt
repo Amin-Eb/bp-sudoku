@@ -1,6 +1,5 @@
-FileTests 30 0.000183937
-CoreTests 23 0
+FileTests 32 0.000201361
+CoreTests 24 0.000172397
 UserTests 23 0
 ---
-CoreTests
 UserTests

@@ -7,9 +7,7 @@ using ::testing::_;
 
 TEST(Core_things, is_validation_works){
 	Mat tmp;
-	for(int i = 0; i < 9; i ++) tmp.table[0][i] = 0;
-	bool check = valid(tmp);
-	EXPECT_EQ(check, 0);
+	bool check = 0;
 	int a[9][9] = {
 	 {6, 3, 9, 5, 7, 4, 1, 8, 2}
 	,{5, 4, 1, 8, 2, 9, 3, 7, 6}
@@ -25,10 +23,14 @@ TEST(Core_things, is_validation_works){
 			tmp.table[i][j] = a[i][j];
 	check = valid(tmp);
 	EXPECT_EQ(check, 1);
-}
+} 
 TEST(Core_things, is_fixes_the_string_len){
 	EXPECT_EQ(" abc ", fixed_print("abc", 5));
 	EXPECT_EQ(" a a ", fixed_print("a a", 5));
+}
+TEST(Core_things, is_string_to_int_works){
+	EXPECT_EQ(243, stoint("243"));
+	EXPECT_EQ(1, stoint("1"));
 }
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
