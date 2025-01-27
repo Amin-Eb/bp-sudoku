@@ -46,7 +46,7 @@ vector<pair<string,string>> GetLeaderBoard(){
     return vc;
 }
 void AddLeaderBoard(string username,int t){
-    ofstream Users("leaderboard.txt");
+    ofstream Users("leaderboard.txt"وstd::ios_base::app);
     Users << (to_string(t) + "," + username);
     Users.close();
 }
