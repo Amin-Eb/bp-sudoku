@@ -69,7 +69,7 @@ int main(){
                     attron(COLOR_PAIR(3));
                     printw("%d : ", ind + 1); ind ++;
                     attroff(COLOR_PAIR(3));
-                    printw("%s in %s seconds.\n", inst.second, inst.first);
+                    printw("%s in %s seconds.\n", inst.second.c_str(), inst.first.c_str());
                 }
                 if(!ind) printw("No data found.\nplease press any key to continue...");
                 refresh();
@@ -95,10 +95,11 @@ int main(){
             if(ch == 'P'){
                 clear();
                 move(0,0);
-                printw("Enter the username of saved game : ");
+                printw("Enter the username of saved game (press m and Enter key for menu): ");
                 char name[80];
                 getstr(name);
                 string UserName(name);
+                if(UserName == "m") break;
                 if(!CheckUser(UserName)){
                     clear();
                     attron(COLOR_PAIR(2));
@@ -207,13 +208,13 @@ inline void PrintMenu(string UserName){
     attroff(COLOR_PAIR(2));
 }
 inline void PlaySaved(string& UserName,int& ElapsedTime,int& dif,Mat& SudokuTable, Mat& verdict,int& wrs){
-    int stat = 0, x = 0, y = 0, empty = 0;
+    int stat = 0, x = 0, y = 0, empty = 0, empty2;
     char ch;
     for(int i = 0; i < 9; i ++){
         for(int j = 0; j < 9; j ++) {
             empty += (verdict.table[i][j] == 0);
         }
-    }
+    } empty2 = empty;
     for(ElapsedTime; ElapsedTime < dif * 8; ElapsedTime ++){
         ch = nb_getch();
         if(ch == 27){
@@ -236,6 +237,8 @@ inline void PlaySaved(string& UserName,int& ElapsedTime,int& dif,Mat& SudokuTabl
             refresh();
             ch = getch();
         }
+        if(ch == 'q')
+            break;
         if(ch == 'd')
             y ++, y = min(y, 8);
         if(ch == 'a')
@@ -266,6 +269,15 @@ inline void PlaySaved(string& UserName,int& ElapsedTime,int& dif,Mat& SudokuTabl
             PrintScr(SudokuTable, verdict, x, y, UserName, ElapsedTime, wrs);
             move(20,0);
             printw("%s\n\n",fixed_print("*** OMG YOU WON!! ***", COLS).c_str());
+            printw("Currect : ");
+            attron(COLOR_PAIR(3));
+            printw("%d       ", empty2);
+            attroff(COLOR_PAIR(3));
+            printw("Wrong answers : ");
+            attron(COLOR_PAIR(2));
+            printw("%d       ", wrs);
+            attroff(COLOR_PAIR(2));
+            printw("Your time : %d' : %d\" \n", ElapsedTime/8/60, (ElapsedTime/8)%60);
             printw("%s", fixed_print("press any key to continue..", COLS).c_str());
             refresh();
             getch();

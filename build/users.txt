@@ -5,3 +5,6 @@ koob
 slama
 lk
 ls
+amin
+kol
+

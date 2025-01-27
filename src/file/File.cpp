@@ -7,8 +7,7 @@ int strtoint_(string s){
 	for(auto ch : s){
 		ret *= 10;
 		ret +=ch - '0';
-	}
-	return ret;
+	}return ret;
 }
 Mat ReadSudoku(string FileName){
     Mat ret;
@@ -58,7 +57,6 @@ void SaveGame(string username, int t, int dif,Mat mat1, Mat mat2,int wrs){
 }
 void LoadGame(string& username, int& t, int& dif,Mat& mat1, Mat& mat2,int& wrs){
     string s;
-
     ifstream t_f("SavedGames/" + username + "_time.txt");
     while (getline (t_f, s))
         t = strtoint_(s);
